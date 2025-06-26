@@ -93,6 +93,8 @@ try:
     print(circle2)
     print(f"area={circle2.area()}")
     
+    print(f"Can circle2 contain rect? {circle2.canContain(rect)}")
+    
     any = Shape()
     print(any)
 except UnknownShapeException as e: 
