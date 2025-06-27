@@ -3,7 +3,7 @@ from math import pi
 ## Exception class for unknown shapes
 class UnknownShapeException(Exception): 
     __name__ = "UnknownShapeException"
-    __message__ = None
+    __message__ = None  ## This is class attribute
     
     def __init__(self, message="Exception raised", *args):
         super().__init__(*args)
@@ -14,7 +14,7 @@ class UnknownShapeException(Exception):
     
 ## Class structure to work with shapes
 class Shape: 
-    __name__ = None
+    __name__ = None ## This is class attribute
     
     def __init__(self, **dimensions):
         self.__name__ = "Unknown"
@@ -38,7 +38,7 @@ class Shape:
             return False
         
 class Circle(Shape): 
-    __radius__ = None
+    __radius__ = None ## This is class attribute
     
     def __init__(self, **dimensions):
         self.__name__ = "Circle"
@@ -58,8 +58,8 @@ class Circle(Shape):
         return f"{self.__name__} with radius {self.__radius__}"
     
 class Rectangle(Shape): 
-    __side_a__ = None
-    __side_b__ = None
+    __side_a__ = None ## This is class attribute
+    __side_b__ = None ## This is class attribute
     
     def __init__(self, **dimensions):
         self.__name__ = "Rectangle"
@@ -89,11 +89,17 @@ try:
     print(rect)
     print(rect.canContain(circle))
     
+    rect2 = Rectangle(side_a=3,side_b=5)
+    print(rect2)
+    
     circle2 = Circle(radius=2)
     print(circle2)
     print(f"area={circle2.area()}")
     
     print(f"Can circle2 contain rect? {circle2.canContain(rect)}")
+    print(rect)
+    ## Check for class attributes
+    print(f"Rectangle class attribute a={Rectangle.__side_a__}, b={Rectangle.__side_b__}")
     
     any = Shape()
     print(any)
